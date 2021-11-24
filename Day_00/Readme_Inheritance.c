@@ -2,17 +2,15 @@
 https://www.geeksforgeeks.org/inheritance-in-c/
 			-----------------------------------------
 
-A class that is derived from another class is called a "subclass", also a
-"derived class", "extended class", or "child class".
-The class from which the "subclas" is derived is called a "superclass", also
-"base class", or "parent class".
+A class that is derived from another class is called a "subclass",  "derived class", "extended class", or "child class".
+The class from which the "subclass" is derived from is called a "superclass", "base class", or "parent class".
 			
 			----------------------------------------
 
  - Inheritance: Is the capability of a class to "derive properties and characteristics from another class".
  "Inheritance": is one of the most important feature of Object Oriented Programming.
  "Sub Class": is the class that inherits properties from another class.
- "Super Class": is the class whose properties are inherited by "Sub Class" is called "Base Class" or "Super Class".
+ "Super Class": is the class whose properties are inherited by "Sub Class".
 
 1- Why and When to use inheritance?
 
@@ -22,14 +20,13 @@ The class from which the "subclas" is derived is called a "superclass", also
  If we create these three classes avoiding inheritance then we have
  to write all of these functions in each of the three classes.
 
-==> You can clearly see that above process results in duplication of
-same code 3 times, this increases the chances of error and data redundancy.
+==> You can clearly see that above process results in "duplication" of same code 3 times, this increases the chances of "error" and "data redundancy".
 
 ==> To avoid this type of situation, inheritance is used.
- - Using inheritance, we have to write the functions only one time instead
- of three times, and the three classes inherited from the bass class.
+ - Using inheritance, we have to write the functions only one time
+ instead of three times, and the three classes inherited from the bass class.
 
-" By creating the class Vehicle and write thse three functions in it, and inheriting the three classes from the Vehicule Class, then we did avoid the duplication of data and increase re-usability".
+" By creating the class Vehicle and write these three functions in it, and inheriting the three classes from the Vehicule Class, then we did avoid the duplication of data and increase re-usability".
 
        		---------------------------------------
 		  Implementing inheritance in C++
@@ -44,15 +41,22 @@ to follow the below syntax.
 	 	//body of subclass
 	 };
 
-==> Here, "subclass_name" is the name of the sub-class,
- and "access_mode" is the mode in which you want to inherit this sub-class;
-	(public, private, or protected).
- and "baseclass_name" is the name of the base class from which you want
- to inherite the sub-class.
+==> A derived class doesn't inherit "access" to "private data members".
 
-- A derived class doesn't inherit "access" to "private data members".
-However, it does inherit a full parent object, which contains any 
-"private members" which that class declares.
+	------------------------------------------------------------
+
+https://www.quora.com/How-do-you-inherit-private-members-in-C
+
+"By definition, you always inherit private members, cuz they are part of the derived object".
+
+==> "You just can't access the members directly, becuz they are private to the base class".
+
+==> "If you need to be able to access those private members of the base class from an inherited class, there are a few options:"
+
+	- The baseClass needs to change those members from private to protectedso that they are still not visible outside the class hierarchy, but are visible
+down through the hierarchy.
+
+	--------------------------------------------------------------
 
      Example:
 
@@ -82,5 +86,10 @@ However, it does inherit a full parent object, which contains any
 		std::cout << "Parent id is " << obj1.id_p << std::endl;
 	}
 
+	-----------------------------------------------------------
+
+			Modes of Inheritance
+
+ 1- Public mode: If we derive a "sub class" from a public base class.
 
 
