@@ -14,13 +14,19 @@ https://www.geeksforgeeks.org/stdstring-class-in-c/?ref=lbp
 - A "character Array" is simply an array of characters can terminated by a null character.
 A "string" is a "class which defines objects" that be represented as "stream of characters".
 
-==> Size of the "character array" has to "allocted statically", more memory cannot be allocated at "run time" if required,
-		and unused allocated memory is "waste" in case of character array.
-==> In case of "strings", memory is "allocated dynamically", more memory can be allocated at run time on demand.
-		As no memory is "preallocated", no memory is wasted.
+		- Size of the "character array" has to "allocted statically", more memory cannot be allocated at "run time" if required,
+		    and unused allocated memory is "waste" in case of character array.
+		- In case of "strings", memory is "allocated dynamically", more memory can be allocated at run time on demand.
+		    As no memory is "preallocated", no memory is wasted.
 
+		- There is "array decay" in case of "character array".
+			As "strings" are represented as objects, no array decay occurs(happens).
 
+		- Implementation of "character array" is faster than std::string.
+		 "Strings" are slower when compared to implementation than "character array".
 
+		 - "Character array" do not offer much inbuild functions to manipulate strings.
+		   "String class" defines a number of functionalities which allow manifold operations on strings.
 
 						------------------------------------------
 								Operations on strings
@@ -30,12 +36,12 @@ A "string" is a "class which defines objects" that be represented as "stream of 
 	- "pop_back()": Introduced for Strings, this function is used to "delete the last character" from the string.
 
 2- Capacity Functions:
+	- "length()": This function "finds the length of the string".
+	- "resize()": This function "changes the size(length) of string", the size can be "increased" or "decreased".
+
 	- "capacity()": This function returns the capacity allocated to the string, which can be 
 			"equal to or more than the size" of the string, cuz additional space is allocated so that when
 			 the new characters are added to the string, the "operations can be done efficiently".
-
-	- "resize()": This function "changes the size of string", the size can be "increased" or "decreased".
-	- "length()": This function "finds the length of the string".
 	- "shrink_to_fit()": This function "decreases the capacity" of the string and makes it equal to the minimum capacity of the string.
 		This operation is "useful to save additional memory" if we are sure that no further addition of characters have to be made.
 
@@ -46,7 +52,7 @@ A "string" is a "class which defines objects" that be represented as "stream of 
 	- "rend()": This function returns a "reverse iterator" pointing at the "beginning" of string.
 
 4- Manipulations Functions:
-	- "copy("char array", len, pos)": This function "copies the substring in target character array" mentioned in its arguments.
+	- "copy("char array", len, pos)": This function "copies the substring in target "character array"" mentioned in its arguments.
 	  It takes 3 arguments, "target char array", "length to be copied" and "starting position in string to start copying".
 	- "swap()": This function swaps one string with other.
 
