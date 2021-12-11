@@ -7,44 +7,107 @@
 
 class Contact
 {
-	private:
-		std::string	first_name;
+	public:
+		std::string first_name;
 		std::string last_name;
 		std::string nickname;
 		std::string phone_number;
 		std::string darkest_secret;
-	public:
+		
 		Contact();
 		~Contact();
+		int index;
 };
 
-class Phonebook{
-	private:
-		contact contacts[8];
-	public:
-		Phonebook();
-		~Phonebook();
-		int count;
-};
-
-
-void add(Phonebook contacts){
-	if
+Contact::Contact(){
 }
 
-void search(){
-	int i;
+Contact::~Contact(){
+}
 
-	i = 0;
-	while (i < 8)
+class Phonebook{
+	public:
+		Contact contacts[8];
+		
+		Phonebook();
+		~Phonebook();
+		static int count;
+		static int get_count(){
+			return count;
+		}
+		static void set_count(){
+			count++;
+		}
+		void add();
+		void search();
+};
+
+Phonebook::Phonebook(){
+}
+
+Phonebook::~Phonebook(){
+}
+
+
+void Phonebook::add(){
+	contacts[Phonebook::get_count()%8].index = Phonebook::get_count()%8;
+	std::cout << "The first name: ";
+	std::cin >> contacts[Phonebook::get_count()%8].first_name;
+	std::cout << "The last name: ";
+	std::cin >> contacts[Phonebook::get_count()%8].last_name;
+	std::cout << "The nickname: ";
+	std::cin >> contacts[Phonebook::get_count()%8].nickname;
+	std::cout << "The phone number: ";
+	std::cin >> contacts[Phonebook::get_count()%8].phone_number;
+	std::cout << "The darkest secret: ";
+	std::cin >> contacts[Phonebook::get_count()%8].darkest_secret;
+}
+
+void display(std::string name){
+	if (name.length() > 10)
 	{
-		std::cout << "Index      " << " | " << "First name" << " | " << "Last name " << " | " << "Nickname  " << " |" << std::endl
+		std::string str = name.substr(0, 9);
+		std::cout << std::left << std::setw(9) << str << '.' << "|";
+	}
+	else
+		std::cout << std::left << std::setw(10) << name << "|";
+
+}
+
+void Phonebook::search(){
+	int i = 0;
+	int j = 8;
+	Contact contact;
+	
+	if (Phonebook::get_count() < 8)
+		j = Phonebook::get_count();
+	
+	if (j == 0)
+		return ;
+	std::cout 
+		<< std::left << std::setw(10) << "Index" 
+		<< "|" << "First name" 
+		<< "|" << "Last name " 
+		<< "|" << "Nickname  " 
+		<< "|" << std::endl;
+
+	while (i < j)
+	{
+		contact = contacts[i];
+		std::cout << std::left << std::setw(10) << contact.index << "|"; 
+		display(contact.first_name);
+		display(contact.last_name);
+		display(contact.nickname);
+		std::cout << std::endl;
+		i++;
 	}
 }
 
+int Phonebook::count = 0;
+
 int main()
 {
-	Phonebook contacts;
+	Phonebook phonebook;
 
 	while (1)
 	{
@@ -53,45 +116,18 @@ int main()
 		std::cin >> command;
 		if (command.compare("EXIT") == 0)
 			return (0);
-		if (command.compare("SEARCH") == 0)
-			search(contacts);
+		else if (command.compare("SEARCH") == 0)
+			phonebook.search();
 		else if (command.compare("ADD") == 0)
-			add(contacts);
+		{
+			phonebook.add();
+			Phonebook::set_count();
+		}
 		else
 		{
-			std::cout << "ERROR ARGUMENT" << std::cout;
+			std::cout << "ERROR ARGUMENT" << std::endl;
 			return (1);
 		}
 	}
 	return (0);
 }
-/*
- int main()
-{
-	std::string name;
-
-	std::cin >> name;
-	if (name.length() > 10)
-	{
-		std::string str = name.substr(0, 9);
-		std::cout << std::left << std::setw(9) << str << '.' << std::endl;
-	}
-	else
-		std::cout << std::left << std::setw(10) << name << std::endl;
-}*/
-
-/*int main()
-{
-
-	while (1)
-	{
-		contact	new_contact;
-		std::cin << "The first name: " << new_contact.firstname << std::endl;
-		std::cin << "The last name: " << new_contact.last << std::endl;
-		std::cin << "The nickname: " << new_contact.nickname << std::endl;
-		std::cin << "The phone number: " << new_contact.phone_number << std::endl;
-		std::cin << "The darkest secret: " << new_contact.dark  est_secret << std::endl;
-	}
-	return (0);
-}*/
-
