@@ -4,9 +4,11 @@
 #include <iostream>
 
 class Weapon{
-	std::string type;
-	std::string const & getType();
-	void setType(std::string type);
+	private:
+		std::string type;
+	public:
+		const std::string& getType();
+		void setType(std::string type);
 };
 
 #endif

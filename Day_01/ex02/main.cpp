@@ -6,11 +6,11 @@ int main(){
 	std::string stringPTR;
 	stringPTR = str;
 	
-	std::string & stringREF = str;
+	std::string& stringREF = str;
 
 
 	std::cout << &str << std::endl;
-	std::cout << & stringREF << std::endl;
+	std::cout << &stringREF << std::endl;
 	std::cout << stringREF << std::endl;
 
 	std::cout << "---------------------------------" << std::endl;	

@@ -2,6 +2,26 @@
 #include <cctype>
 
 /*
+
+    #include <ctype.h>
+			int	toupper(int c);
+
+ ----------------------------------------
+
+	cplusplus.com/reference/
+	Input/Output Headers:
+		
+		==> <fstream>
+		==> <iomanip>
+		==> <ios>
+		==> <iosfwd>
+		==> <iostream> <istream> <ostream>
+		==> <sstream>
+		==> <streambuf>
+
+*/
+
+/*
    			https://www.geeksforgeeks.org/isalpha-isdigit-functions-c-example/
 
 	int isalpha(int c); // tests for any character for which "isupper()" or "islower()"
